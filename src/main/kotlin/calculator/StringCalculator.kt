@@ -5,6 +5,8 @@ class StringCalculator {
         if (input.isEmpty()) {
             return 0
         }
-        return input.toInt()
+
+        val numbers = input.split(",", ":")
+        return numbers.sumOf { it.toInt() }
     }
 }
