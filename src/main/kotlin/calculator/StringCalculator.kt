@@ -2,6 +2,7 @@ package calculator
 
 class StringCalculator {
     private val delimiterParser = DelimiterParser()
+    private val inputValidator = InputValidator()
 
     fun calculate(input: String): Int {
         if (input.isEmpty()) {
@@ -14,6 +15,6 @@ class StringCalculator {
             .map { it.trim() }              // 공백 제거
             .filter { it.isNotEmpty() }     // 빈 문자열 제거
 
-        return numbers.sumOf { it.toInt() }
+        return numbers.sumOf { inputValidator.validateNumber(it) }
     }
 }
